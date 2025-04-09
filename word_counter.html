@@ -1,0 +1,108 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Free Word Counter</title> 
+    <style> 
+        *{
+            font-family: papyrus;
+        }
+        .body{
+            text-align: center; 
+            margin: 50px;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            background-color: black;            
+        }
+        .textarea{ 
+            width:100%; 
+            height:100px;
+            } 
+        .text{
+            font-size: 
+            18px; 
+            margin-top: 10px; 
+            } 
+        .header{
+            display: flex;
+            height: 80px;
+            width: 100%;
+            margin: 10px;
+            color: white;
+            
+        }    
+        .counter{
+            display: flex;
+            height: 500px;
+            width: 100%;
+            margin-top: 20px;
+            flex-direction: column;
+            align-items: center;
+        }
+        .count{
+            color: deepskyblue;
+        }
+        .Type{
+            height: 500px;
+            width: 50%;
+            color: deepskyblue;
+            background-color: black;
+            border-color:deeppink ;
+            font-size:medium;
+        }
+        .Type::placeholder{
+            color: deepskyblue;
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+        }
+        .hr {
+            width: 100%;
+            height: auto;
+            border-color: deeppink;
+        }
+
+        hr { display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid deeppink;
+  margin: 1rem 0;
+  padding: 0;
+}
+        
+        .color{
+            color: deepskyblue;
+        }
+    </style> 
+</head> 
+<body class="container"> 
+    <div class="header">
+        <h2 class="color">Free Word Counter</h2> 
+    </div>
+    <div class="hr">
+        <hr>
+    </div>
+    
+    
+    <div class="main">
+        
+        <div class="counter">
+            <textarea class="Type" id="textInput" placeholder="Start typing, We'll count"></textarea>
+            <p class="count">Words: <span id="wordCount">0</span></p>
+        </div> 
+        <script> 
+            function countWords() 
+            { let text = document.getElementById("textInput").value; 
+            let words = text.trim().split(/\s+/).filter(word => word.length > 0); 
+            document.getElementById("wordCount").innerText = words.length; 
+                } 
+            document.getElementById("textInput").addEventListener("input", countWords);
+        </script>
+    </div> 
+</body>
+</html>
